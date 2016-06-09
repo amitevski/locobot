@@ -1,11 +1,18 @@
 {
   "name": "loco",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Facebook Messenger Chatbot",
+  "main": "dist/es5/src/loco.js",
   "scripts": {
+    "build": "tsc -p ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "Nodejs",
+    "TypeScript",
+    "Facebook Messenger",
+    "Chatbot"
+  ],
   "author": "Aco Mitevski",
   "license": "MIT",
   "dependencies": {
