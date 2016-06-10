@@ -7,10 +7,29 @@ import {
   IBotReply
 } from 'botframework';
 
+import {getPlacesNearby} from './yelp';
+
 
 class BotController implements IBotController{
+
+  /**
+   * handler for received text message
+   */
   textMessage(msg: IBotRequest, reply: IBotReply) {
-    reply.text(`Hi ${msg.user.firstname} :)`);
+    reply.text(`Hi ${msg.user.firstname}. Send me your location to find places nearby ;)`);
+  }
+
+  /**
+   * handler for received Location
+   */
+  locationMessage(msg: IBotRequest, reply: IBotReply) {
+    reply.text('Looking for locations..');
+    getPlacesNearby(msg)
+    .then( locationsResponse => reply.list(locationsResponse) )
+    .catch( (err) => {
+      console.error(`error getting locations ${JSON.stringify(err, null, 2)}`)
+      reply.text(`Oops, something went wrong :( Please try again in a few minutes.`)
+    })
   }
 }
 

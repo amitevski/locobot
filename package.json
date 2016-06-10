@@ -16,6 +16,7 @@
   "author": "Aco Mitevski",
   "license": "MIT",
   "dependencies": {
-    "botframework": "^0.13.0"
+    "botframework": "^0.13.0",
+    "yelp": "^1.0.1"
   }
 }
